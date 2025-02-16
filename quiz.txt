@@ -1,0 +1,95 @@
+
+
+1. What is the capital of France?
+*a) Paris
+b) London
+c) Berlin
+d) Madrid
+
+
+2. Which of the following are programming languages? (Select all that apply)
+[*] Python
+[*] JavaScript
+[] HTML
+[] CSS
+
+
+3. What is the largest planet in our solar system?
+a) Earth
+b) Mars
+*c) Jupiter
+d) Saturn
+
+4. Which data structure uses LIFO (Last In, First Out)?
+*a) Stack
+b) Queue
+c) Linked List
+d) Hash Table
+
+5. What is the chemical symbol for gold?
+a) Ag
+b) Fe
+*c) Au
+d) Pb
+
+6. Which of these are types of databases? (Select all that apply)
+[*] Relational
+[*] NoSQL
+[] HTTP
+[] JSON
+
+7. Who wrote "To Kill a Mockingbird"?
+a) J.K. Rowling
+*b) Harper Lee
+c) Ernest Hemingway
+d) Jane Austen
+
+8. What is the speed of light in vacuum?
+a) 100,000 km/s
+b) 200,000 km/s
+*c) 299,792 km/s
+d) 400,000 km/s
+
+9. Which of the following are considered object-oriented programming languages? (Select all that apply)
+[*] Java
+[*] C++
+[*] Python
+[] HTML
+
+10. What is the smallest prime number?
+*a) 2
+b) 3
+c) 5
+d) 1
+
+11. Which of the following animals are mammals? (Select all that apply)
+[*] Elephant
+[*] Dolphin
+[] Crocodile
+[] Penguin
+
+12. What is the process by which plants make their food?
+a) Respiration
+b) Fermentation
+*c) Photosynthesis
+d) Digestion
+
+13. What is the main ingredient in traditional guacamole?
+a) Tomato
+b) Onion
+*c) Avocado
+d) Lime
+
+14. Who was the first person to walk on the moon?
+a) Buzz Aldrin
+b) Yuri Gagarin
+*c) Neil Armstrong
+d) John Glenn
+
+15. Which of these are web development frameworks? (Select all that apply)
+[*] React
+[*] Angular
+[] C++
+[] MySQL
+
+

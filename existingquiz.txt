@@ -1,0 +1,63 @@
+quiz title: Sample quiz from a Word file.
+
+quiz description: This is a sample quiz created from a Word file.
+
+shuffle answers: true
+
+show correct answers: true
+
+one question at a time: true
+
+GROUP
+
+Pick: 3
+
+Points per question: 2
+
+1. if you are from argentina, your nationality is:
+
+*a) argentino/a
+b) argentino/as
+c) argentina
+d) argentinos
+
+2. my sister is intelligent. mi hermana es ______.
+
+a) inteligentes
+*b) inteligente
+c) inteligenta
+
+3. ¿cómo es tu profesor de español?
+
+a) triste
+*b) simpático
+c) enfermo
+
+4. ella ______ en la biblioteca.
+
+a) es
+*b) está
+
+5. el examen ______ fácil.
+
+*a) es
+b) está
+
+6. usualmente los partidos de fútbol son ______.
+
+*a) los fines de semana
+b) los lunes
+
+7. ¿______ vas después de la clase?
+
+a) qué
+*b) dónde
+c) cuándo
+
+8. los profesores ______ muy buenos.
+
+a) es
+*b) son
+c) están
+
+END_GROUP
