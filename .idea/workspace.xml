@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8be8a464-845f-4232-8726-c64fd5d695f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/existingquiz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/combining.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qtitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtitest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="aayesha-qtistuff" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +63,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/aayesha-2/9" />
+                        <option value="origin/aayesha-combining-backend" />
                       </list>
                     </value>
                   </entry>

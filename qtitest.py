@@ -2,7 +2,7 @@ import subprocess
 import os
 
 # Define the existing quiz file name
-quiz_filename = "quiz.txt"  # Make sure quiz.txt exists in the same directory
+quiz_filename = "output.txt"  # Make sure quiz.txt exists in the same directory
 
 # Check if the file exists before running text2qti
 if not os.path.exists(quiz_filename):
@@ -31,7 +31,7 @@ else:
     print("Error: 'text2qti' is not installed or not in PATH. Try running 'pip install text2qti'.")
 
 # Check if the QTI ZIP file was created
-qti_zip = "quiz.qti.zip"
+qti_zip = "output.qti.zip"
 if os.path.exists(qti_zip):
     print(f"Success! The QTI package '{qti_zip}' has been generated.")
 else:
