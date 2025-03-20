@@ -1,10 +1,15 @@
 import requests
 import time
+import os
+from dotenv import load_dotenv
 
-# Canvas API credentials and file details
-API_URL = "https://ufl.instructure.com"          # Canvas instance base URL
-API_TOKEN = "YOUR_API_TOKEN"                      # Canvas API access token for authentication
-COURSE_ID = 524510                                # Course ID extracted from: https://ufl.instructure.com/courses/524510/
+# Load environment variables from .env file
+load_dotenv()
+
+# Canvas API configuration
+API_URL = "https://k12.instructure.com"
+API_TOKEN = os.getenv("CANVAS_API_TOKEN")
+COURSE_ID = 1999158  # Hardcoded course ID since this is a private repository
 # Use a relative file path for QTI files; ensure that the QTI file is located in the './QTI_Files' directory.
 QTI_ZIP_PATH = "./QTI_Files/quiz.zip" # Adjust the filename as needed
 
@@ -33,7 +38,7 @@ upload_url = migration.get("pre_attachment", {}).get("upload_url")
 upload_params = migration.get("pre_attachment", {}).get("upload_params")
 progress_url = migration.get("progress_url")  # URL to check migration progress
 
-print("Initiated content migration. Upload URL obtained from Canvas.")
+print("Content migration initiated.")
 
 # 3. Upload the QTI file to Canvas using the provided upload_url.
 #    We must send a multipart/form-data POST with all upload_params and the file content.
@@ -50,25 +55,28 @@ if upload_response.status_code in (301, 302):
     if confirm_url:
         confirm_response = requests.get(confirm_url, headers=headers)
         confirm_response.raise_for_status()
-        print("File upload confirmed with Canvas.")
+        print("File upload confirmed.")
 else:
     upload_response.raise_for_status()
-    print("File uploaded directly (no redirect).")
+    print("File uploaded successfully.")
 
 # 4. Monitor the content migration progress until it's completed.
-print("Waiting for Canvas to process the QTI file and create the quiz...")
+print("Processing QTI file...")
 # progress_url is usually a path like "/api/v1/progress/XXXX" – append it to the base URL.
-progress_check_url = f"{API_URL}{progress_url}"
+if progress_url.startswith('http'):
+    progress_check_url = progress_url
+else:
+    progress_check_url = f"{API_URL}{progress_url}"
 while True:
     prog_resp = requests.get(progress_check_url, headers=headers)
     prog_resp.raise_for_status()
     progress_data = prog_resp.json()
     state = progress_data.get("workflow_state")
     if state == "completed":
-        print("Import completed! Canvas has created the quiz from the QTI package.")
+        print("Import completed! Quiz has been created.")
         break
     elif state == "failed":
-        raise Exception(f"Content migration failed: {progress_data}")
+        raise Exception(f"Import failed: {progress_data}")
     # If not completed or failed, you can check progress percentage.
     percent = progress_data.get("completion")
     print(f"Progress: {percent}% (state: {state})")
@@ -88,4 +96,4 @@ new_quiz = max(quizzes, key=lambda q: q.get('id', 0)) if quizzes else None
 if new_quiz:
     print(f"New Quiz created: '{new_quiz.get('title')}' (ID: {new_quiz.get('id')})")
 else:
-    print("No quizzes found in course (unexpected if import succeeded).")
+    print("No quizzes found in course.")
