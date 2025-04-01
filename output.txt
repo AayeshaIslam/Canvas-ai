@@ -1,57 +1,186 @@
-1. ¿Cuál es uno de los objetivos de las sesiones 1 y 2 de la Unidad 13?  
-a) Aprender a conjugar verbos en futuro.  
-b) Narrar en presente.  
-*c) Narrar en el pasado.  
-d) Entender la historia de España.  
+1. ¿Cuál es el verbo correcto para decir "Me llamo Juan"?  
+*a) llamarse  
+b) ser  
+c) estar  
+d) tener  
 
-2. En el contexto de las sesiones 1 y 2, ¿cuál es un tema central que se discute?  
-*a) Identidad e inmigración.  
-b) Geografía y clima.  
-c) Innovaciones tecnológicas.  
-d) Economía y finanzas.  
+2. ¿Cuál de las siguientes oraciones es correcta usando el verbo SER? (Selecciona todos los que apliquen)  
+[*] Ella es médica.  
+[] Nosotros estamos cansados.  
+[*] Ellos son amables.  
+[] Yo tengo hambre.  
 
-3. ¿Cuál de las siguientes es una habilidad que se desarrolla en las sesiones 3 y 4 de la Unidad 14?  
-a) Redactar ensayos.  
-b) Escuchar para entretenerse.  
-*c) Escuchar para entender.  
-d) Leer poesía moderna.  
+3. ¿Cuál es la nacionalidad correcta para una persona de Francia?  
+a) italiano  
+*b) francés  
+c) español  
+d) alemán  
 
-4. Las sesiones 3 y 4 incluyen el uso de un video auténtico. ¿De qué país proviene este video?  
-a) México.  
-b) España.  
-*c) Argentina.  
-d) Chile.  
+4. ¿Cuál verbo usas para describir el estado emocional?  
+a) tener  
+b) llamarse  
+*c) estar  
+d) ser  
 
-5. En la conversación guiada de la Unidad 13, una pregunta es sobre las tendencias migratorias más recientes. ¿Verdadero o falso?  
-*a) Verdadero.  
-b) Falso.  
+5. ¿Cuál es la forma correcta del verbo SER para "nosotros" en presente?  
+a) soy  
+b) eres  
+c) es  
+*d) somos  
 
-6. Uno de los objetivos de la Unidad 14 es aprender a entender la pronunciación de qué letra en español?  
-a) V  
-b) G  
-*c) N  
-d) R  
+6. ¿Cuál de los siguientes verbos se utiliza para expresar posesión?  
+a) ser  
+*b) tener  
+c) estar  
+d) llamarse  
 
-7. ¿Cuál es un aspecto de los objetivos de la Unidad 13?  
-a) Describir ciudades actuales.  
-b) Explicar la naturaleza.  
-c) Identificar especies animales.  
-*d) Usar claves adverbiales para comprender el aspecto del tiempo pasado.  
+7. ¿Qué pregunta es adecuada para conocer la edad de alguien?  
+a) ¿Cómo te llamas?  
+b) ¿Cuál es tu trabajo?  
+*c) ¿Cuántos años tienes?  
+d) ¿De dónde eres?  
 
-8. ¿Qué se recomienda hacer al final de las sesiones 3 y 4 para mostrar comprensión?  
-*a) Dar una presentación usando notas.  
-b) Dibujar un cuadro.  
-c) Escribir un poema en inglés.  
-d) Jugar un juego de roles.  
+8. ¿Cuál de las siguientes palabras es un saludo común en español? (Selecciona todos los que apliquen)  
+[*] Hola  
+[] Gracias  
+[*] Buenas tardes  
+[] Adiós  
 
-9. En las sesiones 1 y 2 de la Unidad 13, se examina un fragmento de qué tipo de novela?  
-a) Novela romántica.  
-b) Novela policial.  
-*c) Novela gráfica sobre un inmigrante en Estados Unidos.  
-d) Novela histórica.  
+9. ¿Cómo se dice "I am a teacher" usando el verbo SER?  
+a) Yo estar profesor.  
+*b) Yo soy profesor.  
+c) Yo tengo profesor.  
+d) Yo llamo profesor.  
 
-10. ¿Las sesiones de la Unidad 14 incluyen la comparación de qué aspecto del mundo hispanohablante?  
-a) Tecnologías avanzadas.  
-b) Plato típicos.  
-*c) Tipos populares de arte.  
-d) Festividades religiosas.  
+10. ¿Qué verbo usarías para describir la ubicación temporal de un evento?  
+a) ser  
+*b) estar  
+c) tener  
+d) llamarse  
+
+11. ¿Cuál es la capital de España?
+*a) Madrid
+b) Barcelona
+c) Sevilla
+d) Valencia
+
+12. ¿Cuál de los siguientes verbos es un verbo AR?
+a) Comer
+b) Vivir
+*c) Hablar
+d) Tener
+
+13. ¿Qué forma correcta del verbo "ser" corresponde a la primera persona del singular?
+*a) Soy
+b) Es
+c) Somos
+d) Son
+
+14. ¿Cuál de los siguientes verbos es de cambio radical? (Selecciona todas las que apliquen)
+[*] Jugar
+[] Comer
+[*] Dormir
+[] Leer
+
+15. ¿Cuál es la forma correcta del verbo gustar para la tercera persona del singular?
+a) Gustan
+*b) Gusta
+c) Gustar
+d) Gustado
+
+16. ¿Cuál es el lugar de origen de uno de los entrenadores de LinguaMeeting que viste en el video?
+a) Madrid
+*b) Buenos Aires
+c) Lisboa
+d) Bogotá
+
+17. ¿Cuál de los siguientes verbos es irregular en la primera persona del singular?
+a) Saber
+b) Volver
+*c) Conocer
+d) Hablar
+
+18. ¿Es cierto o falso? En español, un verbo en infinitivo termina siempre en -ar, -er, o -ir.
+*a) Verdadero
+b) Falso
+
+19. ¿Cuál de las siguientes formas del verbo estar corresponde a la primera persona del singular en presente?
+a) Estás
+b) Está
+*c) Estoy
+d) Están
+
+20. ¿Cuál es la estructura correcta para expresar "Yo sé nadar" en español?
+a) Yo sé a nadar
+b) Yo saber nadar
+*c) Yo sé nadar
+d) Yo nada a saber
+
+21. ¿Cuál de las siguientes opciones se refiere a una pista adverbial para comprender el aspecto del pasado?
+a) Presente
+b) Futuro
+*c) Pasado
+d) Condicional  
+
+
+22. ¿En qué país se ubica el fragmento de la novela gráfica que estudiaste sobre un inmigrante?
+a) México
+b) España
+*c) Estados Unidos
+d) Argentina
+
+
+23. ¿Qué se espera que puedas hacer después de estudiar sobre inmigración e identidad personal?
+a) Escribir poesía
+b) Calcular ecuaciones
+*c) Narrar en el pasado
+d) Dibujar paisajes
+
+
+24. ¿Una convención ortográfica diferente entre el español y el inglés es sobre...?
+a) Uso de números
+*b) Uso de tildes
+c) Uso de comas
+d) Uso de mayúsculas
+
+
+25. ¿Qué recurso puedes usar para dar una presentación de manera efectiva?
+*a) Notas
+b) Un libro
+c) Un diccionario
+d) Una canción
+
+
+26. ¿Cómo se utiliza la letra "ñ" en el español en comparación con el inglés?
+a) Como consonante líquida
+b) Solamente al principio de las palabras
+*c) No existe en inglés
+d) Siempre al final de las palabras
+
+
+27. ¿Cuál de las siguientes es una tendencia migratoria explorada en la unidad?
+a) Turismo
+b) Globalización
+c) Comercio
+*d) Inmigración
+
+
+28. ¿Cuál de estos objetivos es parte del análisis de obras de arte en la unidad?
+a) Análisis de gráficos
+*b) Escuchar para entender
+c) Estudiar poesía
+d) Diseñar edificios
+
+
+29. ¿Qué aspecto histórico se estudia en el video auténtico de Argentina?
+a) Política
+b) Economía
+*c) Historia de un museo de arte
+d) Biografía de un artista
+
+
+30. ¿Qué debes poder hacer al final de la unidad sobre comparing popular types of art in the Spanish-speaking world?
+a) Pintar un mural
+b) Diseñar estatuas
+*c) Explorar y comparar
+d) Publicar un libro
