@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function App() {
   const [urls, setUrls] = useState(null); // Stores generated URLs
   const [loading, setLoading] = useState(false); // Loading state
+  const [courseUrl, setCourseUrl] = useState(""); // Canvas course URL
 
   // === Handle Button Click ===
   const generateAndDeploy = async () => {
@@ -11,12 +12,21 @@ function App() {
     try {
       console.log("🚀 Sending POST request to Flask API...");
 
+      // Create an empty object for the request body
+      const requestBody = {};
+      
+      // Only add courseUrl to the request if it's not empty
+      if (courseUrl.trim()) {
+        requestBody.courseUrl = courseUrl.trim();
+      }
+
       // Send POST request to Flask API
       const response = await fetch("http://127.0.0.1:8080/generate-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(requestBody),
       });
 
       // Check if response is successful
@@ -43,6 +53,28 @@ function App() {
   return (
     <div className="App" style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Generate and Deploy Quiz</h1>
+      
+      {/* Canvas URL Input */}
+      <div style={{ margin: "20px auto", maxWidth: "600px" }}>
+        <label htmlFor="courseUrl" style={{ display: "block", marginBottom: "5px", textAlign: "left" }}>
+          Canvas Course URL (Optional):
+        </label>
+        <input
+          type="text"
+          id="courseUrl"
+          value={courseUrl}
+          onChange={(e) => setCourseUrl(e.target.value)}
+          placeholder="https://canvas-instance.instructure.com/courses/12345"
+          style={{
+            width: "100%",
+            padding: "8px",
+            borderRadius: "4px",
+            border: "1px solid #ccc",
+            marginBottom: "15px"
+          }}
+        />
+      </div>
+      
       <button
         onClick={generateAndDeploy}
         disabled={loading}
@@ -88,13 +120,28 @@ function App() {
               </a>
             </p>
           )}
+          
+          {/* Display Canvas upload result if available */}
+          {urls.canvasUpload && (
+            <div style={{ 
+              margin: "20px auto", 
+              maxWidth: "600px",
+              padding: "10px", 
+              backgroundColor: "#f8f9fa",
+              borderRadius: "5px",
+              border: "1px solid #ddd"
+            }}>
+              <h4>Canvas Upload Result:</h4>
+              <p>{urls.canvasUpload.message}</p>
+            </div>
+          )}
         </div>
       )}
 
       {/* Show error message if no URLs */}
       {!loading && urls === null && (
-        <p style={{ color: "red", marginTop: "20px" }}>
-          ⚠️ No files generated yet. Click the button to generate and deploy.
+        <p style={{ color: "#6c757d", marginTop: "20px" }}>
+          Enter an optional Canvas URL above or just click the button to generate a quiz.
         </p>
       )}
     </div>
