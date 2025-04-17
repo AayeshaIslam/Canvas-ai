@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 import uuid
 from datetime import datetime
 import base64
+import re
 
 # === Flask App Initialization ===
 app = Flask(__name__)
@@ -78,8 +79,35 @@ def run_firebase_deploy():
         print(f"❌ Error: {str(e)}")
         return False
 
+
+def clean_quiz_text(quiz_text):
+    # Split into lines and strip leading/trailing whitespaces
+    lines = quiz_text.splitlines()
+    stripped_lines = [line.lstrip() for line in lines]
+
+    # Find the index of the first line that starts with a number
+    start_index = None
+    for i, line in enumerate(stripped_lines):
+        if re.match(r'^\d+', line):
+            start_index = i
+            break
+
+    # If a valid starting line is found, keep lines from that point on
+    if start_index is not None:
+        cleaned_lines = stripped_lines[start_index:]
+    else:
+        cleaned_lines = []
+
+    # Join the cleaned lines back into a string
+    cleaned_text = '\n'.join(cleaned_lines)
+    return cleaned_text
+
+
 def generate_quiz_from_text(text: str, question_counts: dict) -> str:
     """Generate quiz questions from the given text using OpenAI."""
+    with open("quiz.txt", "r", encoding="utf-8") as file:
+        sample_quiz = file.read()
+
     client = OpenAI(api_key=openai_api_key)
     
     # Format the question counts for the prompt
@@ -95,21 +123,21 @@ def generate_quiz_from_text(text: str, question_counts: dict) -> str:
 Format the quiz in a clear, readable way with proper numbering and spacing.
 For multiple choice questions, include 4 options (A, B, C, D) with one correct answer.
 For true/false questions, clearly mark the correct answer.
-For fill-in-the-blank questions, indicate the correct answer.
-For free response questions, provide a sample answer.
-
+The output should exactly match the formatting from the following quiz sample:
+{sample_quiz}
+In the output don't include any text other than the questions and the answer choices 
 Text to generate quiz from:
 {text}"""
     
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4.1",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that generates educational quizzes."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=2000
+            max_tokens=5000
         )
         
         return response.choices[0].message.content
@@ -191,7 +219,25 @@ def generate_quiz():
         except Exception as e:
             print(f"Error generating quiz text: {str(e)}")
             return jsonify({"error": f"Error generating quiz text: {str(e)}"}), 500
-        
+
+        quiz_text = clean_quiz_text(quiz_text)
+        txt_filename = os.path.join(PUBLIC_FOLDER, "output.txt")
+        with open(txt_filename, "w", encoding="utf-8") as file:
+            file.write(quiz_text)
+
+        # === Step 4: Convert to QTI using text2qti ===
+        if check_text2qti():
+            try:
+                # Run text2qti without the -o flag
+                subprocess.run(["text2qti", txt_filename], check=True)
+                print("✅ QTI package successfully created.")
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Error running text2qti: {e}")
+                qti_zip = None
+        else:
+            print("⚠️  text2qti not installed or not in PATH. Run 'pip install text2qti'.")
+            qti_zip = None
+
         # Generate unique quiz ID
         quiz_id = str(uuid.uuid4())
         
