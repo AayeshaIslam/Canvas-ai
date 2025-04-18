@@ -12,9 +12,8 @@ export default function Dashboard() {
   const [numberOfQuestions, setNumberOfQuestions] = useState<number>(10)
   const [questionTypeCounts, setQuestionTypeCounts] = useState<QuestionTypeCount[]>([
     { type: "multiple-choice", count: 5 },
-    { type: "true-false", count: 2 },
-    { type: "fill-in-multiple-blanks", count: 2 },
-    { type: "free-response", count: 1 },
+    { type: "true-false", count: 3 },
+    { type: "select-all-that-apply", count: 2 },
   ])
   const [instructions, setInstructions] = useState<string>("")
 
@@ -40,8 +39,7 @@ export default function Dashboard() {
   const questionTypes = [
     { id: "multiple-choice", name: "Multiple Choice" },
     { id: "true-false", name: "True/False" },
-    { id: "fill-in-multiple-blanks", name: "Fill in the Blanks" },
-    { id: "free-response", name: "Free Response" },
+    { id: "select-all-that-apply", name: "Select All That Apply" },
   ]
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -109,7 +107,7 @@ export default function Dashboard() {
   }
 
   const updateQuestionTypeCount = (
-    type: "multiple-choice" | "true-false" | "free-response" | "fill-in-multiple-blanks",
+    type: "multiple-choice" | "true-false" | "select-all-that-apply",
     change: number,
   ) => {
     const newCounts = [...questionTypeCounts]
@@ -276,6 +274,10 @@ export default function Dashboard() {
     }
   }
 
+  const navToAddFile = () => {
+    window.location.href = '/'
+  }
+
   return (
     <div className="min-h-screen bg-[#f3edf7] flex">
       {/* Sidebar */}
@@ -284,7 +286,7 @@ export default function Dashboard() {
           <Menu size={24} />
         </button>
         <button className="mt-4 w-12 h-12 bg-[#e8def8] rounded-full flex items-center justify-center text-[#6750a4]">
-          <Plus size={24} />
+          <Plus size={24} onClick={navToAddFile}/>
         </button>
 
         <div className="mt-12 flex flex-col items-center gap-8">

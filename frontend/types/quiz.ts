@@ -13,14 +13,14 @@ export interface Quiz {
 export interface QuizQuestion {
   id: string
   text: string
-  type: "multiple-choice" | "true-false" | "free-response" | "fill-in-multiple-blanks"
+  type: "multiple-choice" | "true-false" | "select-all-that-apply"
   options?: string[]
   correctAnswer?: string | string[]
   blanks?: string[]
 }
 
 export interface QuestionTypeCount {
-  type: "multiple-choice" | "true-false" | "fill-in-multiple-blanks" | "free-response"
+  type: "multiple-choice" | "true-false" | "select-all-that-apply"
   count: number
 }
 
