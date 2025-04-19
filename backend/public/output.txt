@@ -1,60 +1,77 @@
-1. Which of the following is NOT a requirement for students taking the CIS 4301 third exam?
-a) Arriving at least 15 minutes before the exam start time
-b) Bringing your UFID to the exam
-c) Taking the exam remotely from home
-*d) Installing LockDown Browser prior to exam day
+1. What is one of the main objectives in Unidad 13: ¿Cómo era la vida que Finita dejó atrás?
+a) Describe modern technology trends
+b) Analyze environmental policy
+*c) Explore and compare immigration trends in the Spanish-speaking world
+d) Study advanced Spanish literature
 
+2. Which skill is emphasized in Unidad 14: ¿Qué pasaba cuando se creó la obra de arte?
+a) Writing business emails
+b) Calculating statistics
+c) Developing computer programs
+*d) Listening for meaning
 
-2. Which property ensures that database changes made by a transaction are permanent even in the event of a system failure?
-a) Atomicity
-b) Consistency
-c) Isolation
-*d) Durability
+3. In Unidad 15: ¿Cómo hemos reinterpretado la historia?, students are expected to:
+a) Memorize Spanish grammar rules
+b) Focus solely on modern art
+*c) Use historical context to further comprehension
+d) Practice only oral presentations
 
+4. What is a key objective in Unidad 16: ¿Cómo se interpretará el mensaje?
+a) Memorizing famous poems
+*b) Recognizing abbreviations in text messages
+c) Cooking traditional Spanish dishes
+d) Translating legal documents
 
-3. What is the main purpose of a foreign key constraint in a relational database?
-a) Ensuring all values in a column are unique
-*b) Maintaining referential integrity between tables
-c) Improving query performance
-d) Enforcing domain constraints on a column
+5. In Unidad 17: ¿Es necesario que se exploren los estereotipos?, students will:
+a) Learn about Spanish cuisine
+b) Practice advanced mathematics
+*c) Distinguish fact from opinion in a newspaper article
+d) Focus on medical vocabulary
 
+6. Which of the following are topics students will discuss about immigration in Unidad 13? (Select all that apply)
+[*] Recent migration trends in a country
+[*] Motives behind migration trends
+[] The influence of technology on art
+[] Famous Spanish painters
 
-4. Which of the following best describes a virtual view?
-*a) A view that does not store data physically but derives results from base tables
-b) A view that stores its own copy of data
-c) A view that cannot be queried
-d) A view that always allows data modification
+7. Which of these are objectives in Unidad 18? (Select all that apply)
+[*] Recognize stylistic devices of a cohesive essay
+[*] Express doubt and denial
+[] Solve algebraic equations
+[] Study marine biology
 
-
-5. Which of the following is a trade-off of using indexes in a database?
-a) Indexes always slow down query performance
-b) Indexes prevent data integrity violations
-*c) Indexes can improve query speed but may slow down data modification operations
-d) Indexes are only used for enforcing constraints
-
-
-6. Which of the following are ACID properties of transactions? (Select all that apply)
-[*] Atomicity
-[*] Consistency
-[*] Isolation
-[] Accessibility
-
-
-7. Which of the following are types of database constraints? (Select all that apply)
-[*] Primary key
-[*] Foreign key
-[*] Unique
-[] Trigger
-
-
-8. All students must bring their UFID to the exam for identification purposes.
+8. Unidad 14 encourages students to talk about art, artists, and museums.
 *a) True
 b) False
 
-9. The exam can be taken from home if you have LockDown Browser installed.
-a) True
-*b) False
-
-10. A materialized view stores its data physically in the database.
+9. Students are asked to explore and compare how technology is changing social interaction in the Spanish-speaking world in Unidad 16.
 *a) True
 b) False
+
+10. In Unidad 17, one goal is to learn how to use spellcheck in Spanish.
+*a) True
+b) False
+
+11. Which of these is a focus of Unidad 18: ¿Te sorprende que un poema pueda expresar la identidad?
+a) Mastering financial vocabulary
+*b) Understanding a poem by a Nuyorican poet
+c) Exploring historic Spanish architecture
+d) Learning about agricultural exports
+
+12. What is a communication-related skill practiced in Unidad 16?
+a) Cooking traditional foods
+b) Analyzing ancient texts
+c) Solving math problems
+*d) Using appropriate intonation patterns in Spanish
+
+13. Which of the following are explored when discussing stereotypes in Unidad 17? (Select all that apply)
+[*] Stereotypes present in the Spanish-speaking world
+[*] Stereotypes about different regions or communities
+[] Rules for Spanish punctuation
+[] The history of the Spanish Civil War
+
+14. Which are strategies students are encouraged to use in Unidad 15? (Select all that apply)
+[*] Apply engaging strategies in storytelling
+[*] Spell words with the letters g and j
+[] Memorize every Spanish verb
+[] Practice chemistry experiments

@@ -121,6 +121,16 @@ export default function QuizView() {
                 <Download className="mr-2" />
                 Download Text
               </button>
+              {quiz?.qtiUrl && (
+                <a
+                  href={quiz.qtiUrl}
+                  download={`quiz-${quiz.id}-qti.zip`}
+                  className="bg-[#6750a4] text-white py-2 px-4 rounded-lg flex items-center hover:bg-[#7b68b4] transition-colors"
+                >
+                  <Download className="mr-2" />
+                  Download QTI
+                </a>
+              )}
               <a
                 href="/dashboard"
                 className="border border-[#cac4d0] text-[#1d1b20] py-2 px-4 rounded-lg flex items-center hover:bg-[#f3edf7] transition-colors"

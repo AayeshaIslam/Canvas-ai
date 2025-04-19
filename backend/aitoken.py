@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask import send_from_directory
 from PyPDF2 import PdfReader
 from openai import OpenAI
 import subprocess
@@ -231,13 +232,21 @@ def generate_quiz():
         txt_filename = os.path.join(PUBLIC_FOLDER, "output.txt")
         with open(txt_filename, "w", encoding="utf-8") as file:
             file.write(quiz_text)
-
+        qti_url = ""
+        output_zip_path = os.path.join("public", "output.zip")
         # === Step 4: Convert to QTI using text2qti ===
         if check_text2qti():
             try:
                 # Run text2qti without the -o flag
                 subprocess.run(["text2qti", txt_filename], check=True)
                 print("✅ QTI package successfully created.")
+
+                if os.path.exists(output_zip_path):
+                    qti_url = "http://localhost:8080/output.zip"
+                    print(f"✅ QTI ZIP accessible at: {qti_url}")
+                else:
+                    print("⚠️ output.zip not found.")
+                    qti_url = ""
             except subprocess.CalledProcessError as e:
                 print(f"❌ Error running text2qti: {e}")
                 qti_zip = None
@@ -257,6 +266,7 @@ def generate_quiz():
             'questionCounts': data.get('questionCounts', {}),
             'instructions': data.get('instructions', ''),
             'createdAt': datetime.now().isoformat(),
+            'qtiUrl': qti_url,
             'fileName': file_name
         })
         
@@ -278,6 +288,11 @@ def get_quiz_text(quiz_id):
     except Exception as e:
         print("Error getting quiz text:", str(e))
         return jsonify({"error": str(e)}), 500
+@app.route('/output.zip')
+def download_qti():
+    return send_from_directory('public', 'output.zip', as_attachment=True)
+
+
 
 # === Run Flask App ===
 if __name__ == "__main__":

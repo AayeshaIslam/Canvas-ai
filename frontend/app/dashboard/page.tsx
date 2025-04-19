@@ -259,7 +259,7 @@ export default function Dashboard() {
         instructions: data.instructions,
         createdAt: data.createdAt,
         textUrl: data.quizText, // Store the quiz text directly
-        qtiUrl: '', // No QTI URL for now
+        qtiUrl: data.qtiUrl,
         fileName: data.fileName
       }
 
