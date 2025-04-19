@@ -8,6 +8,8 @@ import os
 import firebase_admin
 from firebase_admin import credentials, storage, firestore
 from dotenv import load_dotenv
+import requests
+import time
 import uuid
 from datetime import datetime
 import base64
@@ -79,7 +81,6 @@ def run_firebase_deploy():
         print(f"❌ Error: {str(e)}")
         return False
 
-
 def clean_quiz_text(quiz_text):
     # Split into lines and strip leading/trailing whitespaces
     lines = quiz_text.splitlines()
@@ -101,7 +102,6 @@ def clean_quiz_text(quiz_text):
     # Join the cleaned lines back into a string
     cleaned_text = '\n'.join(cleaned_lines)
     return cleaned_text
-
 
 def generate_quiz_from_text(text: str, question_counts: dict) -> str:
     """Generate quiz questions from the given text using OpenAI."""
@@ -139,7 +139,6 @@ Text to generate quiz from:
             temperature=0.7,
             max_tokens=5000
         )
-        
         return response.choices[0].message.content
     except Exception as e:
         print(f"Error generating quiz: {str(e)}")
@@ -161,7 +160,6 @@ def get_quiz_text_by_id():
 
         quiz_data = quiz_doc.to_dict()
         return jsonify({"text": quiz_data.get("text", "")})
-
     except Exception as e:
         print(f"❌ Error: {str(e)}")
         return jsonify({"error": str(e)}), 500
@@ -221,7 +219,10 @@ def generate_quiz():
             return jsonify({"error": f"Error generating quiz text: {str(e)}"}), 500
 
         quiz_text = clean_quiz_text(quiz_text)
-        txt_filename = os.path.join(PUBLIC_FOLDER, "output.txt")
+        output_dir = "C:/Users/chris/OneDrive/Desktop/CS_Classes/CIS4914/Canvas-ai/mateus-fullstack-project/Canvas-ai/backend/public"
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        txt_filename = os.path.join(output_dir, "output.txt")
         with open(txt_filename, "w", encoding="utf-8") as file:
             file.write(quiz_text)
 
@@ -231,6 +232,56 @@ def generate_quiz():
                 # Run text2qti without the -o flag
                 subprocess.run(["text2qti", txt_filename], check=True)
                 print("✅ QTI package successfully created.")
+                # Canvas API Upload Process
+                canvas_api_url = os.getenv("CANVAS_API_URL", "https://k12.instructure.com")
+                canvas_api_token = os.getenv("CANVAS_API_TOKEN")
+                canvas_course_id = os.getenv("CANVAS_COURSE_ID", "1999158")
+                if not canvas_api_token:
+                    raise Exception("CANVAS_API_TOKEN not set in .env")
+                init_url = f"{canvas_api_url}/api/v1/courses/{canvas_course_id}/content_migrations"
+                qti_zip_path = os.path.join(output_dir, "output.zip")
+                payload = {
+                    "migration_type": "qti_converter",
+                    "pre_attachment[name]": os.path.basename(qti_zip_path)
+                }
+                headers = {"Authorization": f"Bearer {canvas_api_token}"}
+                response = requests.post(init_url, data=payload, headers=headers)
+                response.raise_for_status()
+                migration = response.json()
+                upload_url = migration.get("pre_attachment", {}).get("upload_url")
+                upload_params = migration.get("pre_attachment", {}).get("upload_params")
+                progress_url = migration.get("progress_url")
+                print("Content migration initiated.")
+                with open(qti_zip_path, "rb") as f:
+                    files = {"file": f}
+                    upload_response = requests.post(upload_url, data=upload_params, files=files)
+                    if upload_response.status_code in (301, 302):
+                        confirm_url = upload_response.headers.get("Location")
+                        if confirm_url:
+                            confirm_response = requests.get(confirm_url, headers=headers)
+                            confirm_response.raise_for_status()
+                            print("File upload confirmed.")
+                    else:
+                        upload_response.raise_for_status()
+                        print("File uploaded successfully.")
+                print("Processing QTI file...")
+                if progress_url.startswith("http"):
+                    progress_check_url = progress_url
+                else:
+                    progress_check_url = f"{canvas_api_url}{progress_url}"
+                while True:
+                    prog_resp = requests.get(progress_check_url, headers=headers)
+                    prog_resp.raise_for_status()
+                    progress_data = prog_resp.json()
+                    state = progress_data.get("workflow_state")
+                    if state == "completed":
+                        print("Import completed! Quiz has been created in Canvas.")
+                        break
+                    elif state == "failed":
+                        raise Exception("Import failed: " + str(progress_data))
+                    percent = progress_data.get("completion")
+                    print(f"Progress: {percent}% (state: {state})")
+                    time.sleep(2)
             except subprocess.CalledProcessError as e:
                 print(f"❌ Error running text2qti: {e}")
                 qti_zip = None
@@ -241,7 +292,6 @@ def generate_quiz():
         # Generate unique quiz ID
         quiz_id = str(uuid.uuid4())
         
-        # Return quiz data directly without storing in Firestore
         return jsonify({
             'quizId': quiz_id,
             'quizText': quiz_text,
@@ -260,18 +310,14 @@ def generate_quiz():
 @app.route('/api/get-quiz-text/<quiz_id>', methods=['GET'])
 def get_quiz_text(quiz_id):
     try:
-        # Get quiz data from Firestore
         quiz_doc = db.collection('quizzes').document(quiz_id).get()
         if not quiz_doc.exists:
             return jsonify({"error": "Quiz not found"}), 404
-            
         quiz_data = quiz_doc.to_dict()
         return quiz_data.get('quizText', '')
-        
     except Exception as e:
         print("Error getting quiz text:", str(e))
         return jsonify({"error": str(e)}), 500
 
-# === Run Flask App ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)
