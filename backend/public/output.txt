@@ -1,57 +1,60 @@
-1. Which of the following is NOT a requirement for students on exam day?
-a) Arrive at least 15 minutes before the exam
-b) Bring their laptop
-*c) Submit the exam via email
-d) Bring their UFID
+1. Which of the following is NOT a requirement for students taking the CIS 4301 third exam?
+a) Arriving at least 15 minutes before the exam start time
+b) Bringing your UFID to the exam
+c) Taking the exam remotely from home
+*d) Installing LockDown Browser prior to exam day
 
-2. Which property is NOT part of the ACID properties in database transactions?
+
+2. Which property ensures that database changes made by a transaction are permanent even in the event of a system failure?
 a) Atomicity
 b) Consistency
 c) Isolation
-*d) Concurrency
+*d) Durability
 
-3. What is the main purpose of using indexes in a database?
-a) To store backups
-*b) To improve query performance
-c) To enforce foreign key constraints
-d) To normalize tables
 
-4. Which of the following are types of constraints in a relational database? (Select all that apply)
+3. What is the main purpose of a foreign key constraint in a relational database?
+a) Ensuring all values in a column are unique
+*b) Maintaining referential integrity between tables
+c) Improving query performance
+d) Enforcing domain constraints on a column
+
+
+4. Which of the following best describes a virtual view?
+*a) A view that does not store data physically but derives results from base tables
+b) A view that stores its own copy of data
+c) A view that cannot be queried
+d) A view that always allows data modification
+
+
+5. Which of the following is a trade-off of using indexes in a database?
+a) Indexes always slow down query performance
+b) Indexes prevent data integrity violations
+*c) Indexes can improve query speed but may slow down data modification operations
+d) Indexes are only used for enforcing constraints
+
+
+6. Which of the following are ACID properties of transactions? (Select all that apply)
+[*] Atomicity
+[*] Consistency
+[*] Isolation
+[] Accessibility
+
+
+7. Which of the following are types of database constraints? (Select all that apply)
 [*] Primary key
-[*] Check constraint
-[] Join constraint
-[] Sequence constraint
+[*] Foreign key
+[*] Unique
+[] Trigger
 
-5. Which of the following are true about triggers in a database? (Select all that apply)
-[*] They can enforce business rules automatically
-[*] They can log changes to a table
-[] They are used only for creating indexes
-[] They are always executed manually by users
 
-6. Students must take the CIS 4301 third exam in their assigned classroom during the scheduled time.
+8. All students must bring their UFID to the exam for identification purposes.
 *a) True
 b) False
 
-7. The LockDown Browser must be installed and functioning on your device before exam day.
-*a) True
-b) False
-
-8. A student without their UFID will still be allowed to take the CIS 4301 exam.
+9. The exam can be taken from home if you have LockDown Browser installed.
 a) True
 *b) False
 
-9. Views can be used to present data from a database in different ways without storing duplicate data.
+10. A materialized view stores its data physically in the database.
 *a) True
 b) False
-
-10. Which of the following statements about normalization are correct? (Select all that apply)
-[*] 1NF, 2NF, 3NF, and BCNF are types of normal forms
-[*] Decomposition can be used to achieve BCNF
-[] Normalization is only used for creating indexes
-[] 3NF is less strict than 2NF
-
-11. Which of the following are isolation levels in database transactions? (Select all that apply)
-[*] Read Uncommitted
-[*] Serializable
-[] Write Uncommitted
-[] Read-Only

@@ -96,6 +96,19 @@ export default function Dashboard() {
       setQuestionTypeCounts(newCounts)
     }
   }, [numberOfQuestions])
+  //Test:Added by Aayesha who doesnt know React
+  useEffect(() => {
+  const storedQuizzes = localStorage.getItem("pastQuizzes")
+  if (storedQuizzes) {
+    try {
+      setPastQuizzes(JSON.parse(storedQuizzes))
+    } catch (error) {
+      console.error("Error parsing stored quizzes:", error)
+      localStorage.removeItem("pastQuizzes")
+    }
+  }
+}, [])
+
 
   // Toggle material selection
   const toggleMaterial = (materialId: string) => {
