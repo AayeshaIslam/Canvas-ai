@@ -103,7 +103,7 @@ def clean_quiz_text(quiz_text):
     return cleaned_text
 
 
-def generate_quiz_from_text(text: str, question_counts: dict) -> str:
+def generate_quiz_from_text(text: str, question_counts: dict, courseId: str, instructions: str = "") -> str:
     """Generate quiz questions from the given text using OpenAI."""
     with open("quiz.txt", "r", encoding="utf-8") as file:
         sample_quiz = file.read()
@@ -119,10 +119,15 @@ def generate_quiz_from_text(text: str, question_counts: dict) -> str:
     question_types_str = ", ".join(question_types)
     
     # Create the prompt
-    prompt = f"""Generate a quiz based on the following text. Include {question_types_str}.
+    prompt = f"""Pretend you are a Professor of the course {courseId}. Generate a quiz based on the following text. Include {question_types_str}.
 Format the quiz in a clear, readable way with proper numbering and spacing.
 For multiple choice questions, include 4 options (A, B, C, D) with one correct answer.
-For true/false questions, clearly mark the correct answer.
+For true/false questions, clearly mark the correct answer."""
+    if instructions.strip():
+        prompt += f"""
+    Follow these additional instructions **as long as they do not change or break the formatting** used in the sample quiz:
+    {instructions.strip()}"""
+    prompt += f"""
 The output should exactly match the formatting from the following quiz sample:
 {sample_quiz}
 In the output don't include any text other than the questions and the answer choices 
@@ -176,6 +181,7 @@ def generate_quiz():
             'materials': data.get('materials'),
             'questionCounts': data.get('questionCounts'),
             'fileName': data.get('fileName'),
+            'instructions': data.get('instructions', ''),
             'hasFileData': bool(data.get('fileData')),
             'fileDataLength': len(data.get('fileData', '')) if data.get('fileData') else 0
         })
@@ -183,7 +189,8 @@ def generate_quiz():
         # Get file data from request
         file_data = data.get('fileData')
         file_name = data.get('fileName')
-        
+        instructions = data.get('instructions', '')
+        courseId = data.get('courseId')
         if not file_data:
             print("Error: No file data provided")
             return jsonify({"error": "No file data provided"}), 400
@@ -215,7 +222,7 @@ def generate_quiz():
         
         # Generate quiz using the extracted text
         try:
-            quiz_text = generate_quiz_from_text(text, data.get('questionCounts', {}))
+            quiz_text = generate_quiz_from_text(text, data.get('questionCounts', {}), instructions, courseId)
         except Exception as e:
             print(f"Error generating quiz text: {str(e)}")
             return jsonify({"error": f"Error generating quiz text: {str(e)}"}), 500

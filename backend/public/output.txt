@@ -1,0 +1,57 @@
+1. Which of the following is NOT a requirement for students on exam day?
+a) Arrive at least 15 minutes before the exam
+b) Bring their laptop
+*c) Submit the exam via email
+d) Bring their UFID
+
+2. Which property is NOT part of the ACID properties in database transactions?
+a) Atomicity
+b) Consistency
+c) Isolation
+*d) Concurrency
+
+3. What is the main purpose of using indexes in a database?
+a) To store backups
+*b) To improve query performance
+c) To enforce foreign key constraints
+d) To normalize tables
+
+4. Which of the following are types of constraints in a relational database? (Select all that apply)
+[*] Primary key
+[*] Check constraint
+[] Join constraint
+[] Sequence constraint
+
+5. Which of the following are true about triggers in a database? (Select all that apply)
+[*] They can enforce business rules automatically
+[*] They can log changes to a table
+[] They are used only for creating indexes
+[] They are always executed manually by users
+
+6. Students must take the CIS 4301 third exam in their assigned classroom during the scheduled time.
+*a) True
+b) False
+
+7. The LockDown Browser must be installed and functioning on your device before exam day.
+*a) True
+b) False
+
+8. A student without their UFID will still be allowed to take the CIS 4301 exam.
+a) True
+*b) False
+
+9. Views can be used to present data from a database in different ways without storing duplicate data.
+*a) True
+b) False
+
+10. Which of the following statements about normalization are correct? (Select all that apply)
+[*] 1NF, 2NF, 3NF, and BCNF are types of normal forms
+[*] Decomposition can be used to achieve BCNF
+[] Normalization is only used for creating indexes
+[] 3NF is less strict than 2NF
+
+11. Which of the following are isolation levels in database transactions? (Select all that apply)
+[*] Read Uncommitted
+[*] Serializable
+[] Write Uncommitted
+[] Read-Only
