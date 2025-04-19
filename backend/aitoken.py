@@ -219,10 +219,7 @@ def generate_quiz():
             return jsonify({"error": f"Error generating quiz text: {str(e)}"}), 500
 
         quiz_text = clean_quiz_text(quiz_text)
-        output_dir = "C:/Users/chris/OneDrive/Desktop/CS_Classes/CIS4914/Canvas-ai/mateus-fullstack-project/Canvas-ai/backend/public"
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        txt_filename = os.path.join(output_dir, "output.txt")
+        txt_filename = os.path.join(PUBLIC_FOLDER, "output.txt")
         with open(txt_filename, "w", encoding="utf-8") as file:
             file.write(quiz_text)
 
@@ -239,7 +236,7 @@ def generate_quiz():
                 if not canvas_api_token:
                     raise Exception("CANVAS_API_TOKEN not set in .env")
                 init_url = f"{canvas_api_url}/api/v1/courses/{canvas_course_id}/content_migrations"
-                qti_zip_path = os.path.join(output_dir, "output.zip")
+                qti_zip_path = os.path.join(PUBLIC_FOLDER, "output.zip")
                 payload = {
                     "migration_type": "qti_converter",
                     "pre_attachment[name]": os.path.basename(qti_zip_path)
@@ -264,24 +261,26 @@ def generate_quiz():
                     else:
                         upload_response.raise_for_status()
                         print("File uploaded successfully.")
+                
+                # Poll progress for up to 30 seconds
                 print("Processing QTI file...")
-                if progress_url.startswith("http"):
-                    progress_check_url = progress_url
-                else:
-                    progress_check_url = f"{canvas_api_url}{progress_url}"
-                while True:
-                    prog_resp = requests.get(progress_check_url, headers=headers)
+                start_time = time.time()
+                max_poll_duration = 30
+                while time.time() - start_time < max_poll_duration:
+                    prog_resp = requests.get(progress_url, headers=headers)
                     prog_resp.raise_for_status()
                     progress_data = prog_resp.json()
                     state = progress_data.get("workflow_state")
+                    completion = progress_data.get("completion", 0)
+                    print(f"Progress: {completion}% (state: {state})")
                     if state == "completed":
                         print("Import completed! Quiz has been created in Canvas.")
                         break
                     elif state == "failed":
                         raise Exception("Import failed: " + str(progress_data))
-                    percent = progress_data.get("completion")
-                    print(f"Progress: {percent}% (state: {state})")
                     time.sleep(2)
+                else:
+                    print(f"Preview returned; file upload is still processing. Last recorded progress: {completion}%.")
             except subprocess.CalledProcessError as e:
                 print(f"❌ Error running text2qti: {e}")
                 qti_zip = None
