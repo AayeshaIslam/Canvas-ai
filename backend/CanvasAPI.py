@@ -11,7 +11,7 @@ API_URL = "https://k12.instructure.com"
 API_TOKEN = os.getenv("CANVAS_API_TOKEN")
 COURSE_ID = 1999158  # Hardcoded course ID since this is a private repository
 # Use a relative file path for QTI files; ensure that the QTI file is located in the './QTI_Files' directory.
-QTI_ZIP_PATH = "./QTI_Files/quiz.zip" # Adjust the filename as needed
+QTI_ZIP_PATH = "./public/output.zip" # Adjust the filename as needed
 
 # 1. Set up authentication header using the API token.
 #    The token is included as a Bearer token in the Authorization header.

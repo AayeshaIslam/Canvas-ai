@@ -232,7 +232,9 @@ def generate_quiz():
                 # Canvas API Upload Process
                 canvas_api_url = os.getenv("CANVAS_API_URL", "https://k12.instructure.com")
                 canvas_api_token = os.getenv("CANVAS_API_TOKEN")
-                canvas_course_id = os.getenv("CANVAS_COURSE_ID", "1999158")
+                canvas_course_id = data.get("canvasCourseId")
+                if not canvas_course_id:
+                    raise Exception("Canvas course ID is required")
                 if not canvas_api_token:
                     raise Exception("CANVAS_API_TOKEN not set in .env")
                 init_url = f"{canvas_api_url}/api/v1/courses/{canvas_course_id}/content_migrations"

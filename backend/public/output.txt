@@ -1,0 +1,39 @@
+1. Which of the following are fields in the TCP header? (Select all that apply)
+[*] Sequence number
+[*] Window size
+[] MAC address
+[] File name
+
+
+2. What is the purpose of the three-way handshake in TCP?
+a) To encrypt data before transmission
+b) To detect network congestion
+*c) To establish a reliable connection between client and server
+d) To compress packets for efficiency
+
+
+3. TCP flow control ensures that a sender does not overwhelm a receiver by sending data too quickly.
+*a) True
+b) False
+
+4. Which of the following are characteristics of TCP congestion control with AIMD? (Select all that apply)
+[*] Additive increase
+[*] Multiplicative decrease
+[] Random exponential backoff
+[] Packet fragmentation
+
+
+5. The primary functions of a router at the network layer are packet forwarding and routing.
+*a) True
+b) False
+
+6. Which of these statements about NAT (Network Address Translation) and home networks is correct?
+a) External hosts can always initiate communication to devices behind a NAT.
+b) Devices behind a NAT are always accessible from the Internet by default.
+c) Manual NAT table entries can make internal devices accessible from outside.
+*d) NAT is only used to assign MAC addresses.
+
+
+7. In OSPF, each area border router learns both local and other area prefixes to build a complete forwarding table.
+*a) True
+b) False
