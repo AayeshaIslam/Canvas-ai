@@ -1,0 +1,75 @@
+1. What is the primary focus of the UF-UNED COIL project?
+a) Developing new computer hardware
+*b) Analyzing the feasibility of implementing internet-based software in Costa Rica’s urban and rural communities
+c) Teaching Spanish language skills
+d) Creating mobile apps for entertainment
+
+2. Which online platform must be used for collaboration and documentation throughout the project?
+a) Microsoft Teams
+b) Dropbox
+*c) Google Drive
+d) Moodle
+
+3. Who is responsible for collecting local data from Costa Rican communities?
+a) University of Florida students
+*b) UNED students
+c) Both universities’ faculty
+d) External consultants
+
+4. What type of presentation is required at the end of the project?
+a) Written report only
+*b) Oral presentation with visual materials
+c) Poster presentation
+d) Podcast episode
+
+5. Which of the following is NOT a required element for the project’s cover page?
+a) Names of the students
+b) Logos and names of UF and UNED
+*c) Table of contents
+d) Month and year
+
+6. Which of these are evaluated during the technical analysis phase? (Select all that apply)
+[*] Internet speed and bandwidth
+[*] Device compatibility
+[] Marketing strategy
+[] Social media presence
+
+7. Which activities are included in the academic and cultural profile video? (Select all that apply)
+[*] Describing favorite national holiday
+[*] Discussing technological tools used in academic life
+[] Coding a new software application
+[] Listing all group members’ grades
+
+8. The entire project must be documented in both English and Spanish.
+*a) True
+b) False
+
+9. Students are encouraged to use AI tools for writing and grammar checking.
+*a) True
+b) False
+
+10. The video component may be casual and relaxed as long as it is respectful and clear.
+*a) True
+b) False
+
+11. What is one of the data points UNED students must collect from their communities?
+a) Weather patterns
+b) Local political affiliations
+*c) Average internet speed
+d) Number of restaurants
+
+12. Which operating systems should be considered during device compatibility tests?
+a) Only Windows and Android
+b) Only Linux and iOS
+*c) Windows, macOS, Android, and iOS
+d) DOS and UNIX
+
+13. Which of these are guidelines for the written project document? (Select all that apply)
+[*] Use Arial, Tahoma, or Calibri font, size 12, black color
+[*] Include a cover page with specified information
+[] Use only handwritten notes
+[] Submit in PDF format only
+
+14. The technical analysis phase includes evaluating hardware requirements such as processor, RAM, and storage.
+*a) True
+b) False
