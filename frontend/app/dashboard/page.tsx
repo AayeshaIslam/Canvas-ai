@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   const [pastQuizzes, setPastQuizzes] = useState<Quiz[]>([])
   const [isGenerating, setIsGenerating] = useState<boolean>(false)
-
+  const [canvasCourseId, setCanvasCourseId] = useState<string>("1999158")
   const [uploadedFiles, setUploadedFiles] = useState<any[]>([])
 
   const [newCourseCode, setNewCourseCode] = useState<string>("")
@@ -238,6 +238,7 @@ export default function Dashboard() {
             return acc
           }, {} as Record<string, number>),
           instructions: instructions,
+          canvasCourseId: canvasCourseId,
           fileData: base64Data,
           fileName: selectedFile.name,
         }),
@@ -468,6 +469,20 @@ export default function Dashboard() {
                 placeholder="Add specific instructions for quiz generation (e.g., focus on chapters 1-3, include vocabulary questions, etc.)"
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
+              />
+            </div>
+
+             {/* Course ID Field */}
+            <div className="mb-6">
+            <label className="block text-[#1d1b20] font-medium mb-2">
+                Canvas Course ID
+              </label>
+              <input
+                type="text"
+                className="w-64 p-2 border border-[#cac4d0] rounded-lg bg-white text-[#1d1b20]"
+                placeholder="e.g. 1999158"
+              value={canvasCourseId}
+              onChange={(e) => setCanvasCourseId(e.target.value)}
               />
             </div>
 

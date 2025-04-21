@@ -1,77 +1,75 @@
-1. What is one of the main objectives in Unidad 13: ¿Cómo era la vida que Finita dejó atrás?
-a) Describe modern technology trends
-b) Analyze environmental policy
-*c) Explore and compare immigration trends in the Spanish-speaking world
-d) Study advanced Spanish literature
+1. What is the primary focus of the UF-UNED COIL project?
+a) Developing new computer hardware
+*b) Analyzing the feasibility of implementing internet-based software in Costa Rica’s urban and rural communities
+c) Teaching Spanish language skills
+d) Creating mobile apps for entertainment
 
-2. Which skill is emphasized in Unidad 14: ¿Qué pasaba cuando se creó la obra de arte?
-a) Writing business emails
-b) Calculating statistics
-c) Developing computer programs
-*d) Listening for meaning
+2. Which online platform must be used for collaboration and documentation throughout the project?
+a) Microsoft Teams
+b) Dropbox
+*c) Google Drive
+d) Moodle
 
-3. In Unidad 15: ¿Cómo hemos reinterpretado la historia?, students are expected to:
-a) Memorize Spanish grammar rules
-b) Focus solely on modern art
-*c) Use historical context to further comprehension
-d) Practice only oral presentations
+3. Who is responsible for collecting local data from Costa Rican communities?
+a) University of Florida students
+*b) UNED students
+c) Both universities’ faculty
+d) External consultants
 
-4. What is a key objective in Unidad 16: ¿Cómo se interpretará el mensaje?
-a) Memorizing famous poems
-*b) Recognizing abbreviations in text messages
-c) Cooking traditional Spanish dishes
-d) Translating legal documents
+4. What type of presentation is required at the end of the project?
+a) Written report only
+*b) Oral presentation with visual materials
+c) Poster presentation
+d) Podcast episode
 
-5. In Unidad 17: ¿Es necesario que se exploren los estereotipos?, students will:
-a) Learn about Spanish cuisine
-b) Practice advanced mathematics
-*c) Distinguish fact from opinion in a newspaper article
-d) Focus on medical vocabulary
+5. Which of the following is NOT a required element for the project’s cover page?
+a) Names of the students
+b) Logos and names of UF and UNED
+*c) Table of contents
+d) Month and year
 
-6. Which of the following are topics students will discuss about immigration in Unidad 13? (Select all that apply)
-[*] Recent migration trends in a country
-[*] Motives behind migration trends
-[] The influence of technology on art
-[] Famous Spanish painters
+6. Which of these are evaluated during the technical analysis phase? (Select all that apply)
+[*] Internet speed and bandwidth
+[*] Device compatibility
+[] Marketing strategy
+[] Social media presence
 
-7. Which of these are objectives in Unidad 18? (Select all that apply)
-[*] Recognize stylistic devices of a cohesive essay
-[*] Express doubt and denial
-[] Solve algebraic equations
-[] Study marine biology
+7. Which activities are included in the academic and cultural profile video? (Select all that apply)
+[*] Describing favorite national holiday
+[*] Discussing technological tools used in academic life
+[] Coding a new software application
+[] Listing all group members’ grades
 
-8. Unidad 14 encourages students to talk about art, artists, and museums.
+8. The entire project must be documented in both English and Spanish.
 *a) True
 b) False
 
-9. Students are asked to explore and compare how technology is changing social interaction in the Spanish-speaking world in Unidad 16.
+9. Students are encouraged to use AI tools for writing and grammar checking.
 *a) True
 b) False
 
-10. In Unidad 17, one goal is to learn how to use spellcheck in Spanish.
+10. The video component may be casual and relaxed as long as it is respectful and clear.
 *a) True
 b) False
 
-11. Which of these is a focus of Unidad 18: ¿Te sorprende que un poema pueda expresar la identidad?
-a) Mastering financial vocabulary
-*b) Understanding a poem by a Nuyorican poet
-c) Exploring historic Spanish architecture
-d) Learning about agricultural exports
+11. What is one of the data points UNED students must collect from their communities?
+a) Weather patterns
+b) Local political affiliations
+*c) Average internet speed
+d) Number of restaurants
 
-12. What is a communication-related skill practiced in Unidad 16?
-a) Cooking traditional foods
-b) Analyzing ancient texts
-c) Solving math problems
-*d) Using appropriate intonation patterns in Spanish
+12. Which operating systems should be considered during device compatibility tests?
+a) Only Windows and Android
+b) Only Linux and iOS
+*c) Windows, macOS, Android, and iOS
+d) DOS and UNIX
 
-13. Which of the following are explored when discussing stereotypes in Unidad 17? (Select all that apply)
-[*] Stereotypes present in the Spanish-speaking world
-[*] Stereotypes about different regions or communities
-[] Rules for Spanish punctuation
-[] The history of the Spanish Civil War
+13. Which of these are guidelines for the written project document? (Select all that apply)
+[*] Use Arial, Tahoma, or Calibri font, size 12, black color
+[*] Include a cover page with specified information
+[] Use only handwritten notes
+[] Submit in PDF format only
 
-14. Which are strategies students are encouraged to use in Unidad 15? (Select all that apply)
-[*] Apply engaging strategies in storytelling
-[*] Spell words with the letters g and j
-[] Memorize every Spanish verb
-[] Practice chemistry experiments
+14. The technical analysis phase includes evaluating hardware requirements such as processor, RAM, and storage.
+*a) True
+b) False

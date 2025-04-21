@@ -8,7 +8,7 @@ load_dotenv()
 
 # Canvas API configuration
 API_URL = "https://k12.instructure.com"
-API_TOKEN = "6936~Ry2MLeL2KQH2X8JWeyyyWu6a7tBHPyY8LuMn9RvCHG3TQPB6VfXEyfz2hBDUGWTT"
+API_TOKEN = ""
 COURSE_ID = 1999158  # Hardcoded course ID since this is a private repository
 # Use a relative file path for QTI files; ensure that the QTI file is located in the './QTI_Files' directory.
 QTI_ZIP_PATH = "./public/output.zip" # Adjust the filename as needed
