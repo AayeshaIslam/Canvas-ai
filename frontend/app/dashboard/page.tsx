@@ -299,7 +299,7 @@ export default function Dashboard() {
         <button className="p-4 text-[#6750a4]">
           <Menu size={24} />
         </button>
-        <button className="mt-4 w-12 h-12 bg-[#e8def8] rounded-full flex items-center justify-center text-[#6750a4]">
+        <button data-testid="plus" className="mt-4 w-12 h-12 bg-[#e8def8] rounded-full flex items-center justify-center text-[#6750a4]">
           <Plus size={24} onClick={navToAddFile}/>
         </button>
 
@@ -435,6 +435,7 @@ export default function Dashboard() {
                     <span className="text-[#1d1b20]">{type.name}</span>
                     <div className="flex items-center">
                       <button
+                        data-testid="minusQuestion"
                         className="w-8 h-8 flex items-center justify-center text-[#6750a4] border border-[#cac4d0] rounded-l-lg"
                         onClick={() => updateQuestionTypeCount(type.id as any, -1)}
                       >
@@ -444,6 +445,7 @@ export default function Dashboard() {
                         {questionTypeCounts.find((item) => item.type === type.id)?.count || 0}
                       </div>
                       <button
+                        data-testid="plusQuestion"
                         className="w-8 h-8 flex items-center justify-center text-[#6750a4] border border-[#cac4d0] rounded-r-lg"
                         onClick={() => updateQuestionTypeCount(type.id as any, 1)}
                       >

@@ -7,7 +7,7 @@ import { ArrowRight, FileText, Upload, Menu, Plus} from "lucide-react"
 import { useRouter } from "next/navigation"
 
 export default function UploadPage() {
-  const router = useRouter()
+  //const router = useRouter()
   const [files, setFiles] = useState<File[]>([])
   const [uploading, setUploading] = useState(false)
   const [dragActive, setDragActive] = useState(false)
