@@ -421,7 +421,7 @@ export default function Dashboard() {
                 <div className="flex justify-between mt-1">
                   <span className="text-xs text-[#49454f]">5</span>
                   <span className="text-xs text-[#49454f]">{numberOfQuestions}</span>
-                  <span className="text-xs text-[#49454f]">50</span>
+                  <span className="text-xs text-[#49454f]">500</span>
                 </div>
               </div>
             </div>

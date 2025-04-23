@@ -125,7 +125,8 @@ def generate_quiz_from_text(text: str, question_counts: dict, courseId: str, ins
     prompt = f"""Pretend you are a Professor of the course {courseId}. Generate a quiz based on the following text. Include {question_types_str}.
 Format the quiz in a clear, readable way with proper numbering and spacing.
 For multiple choice questions, include 4 options (A, B, C, D) with one correct answer.
-For true/false questions, clearly mark the correct answer."""
+For true/false questions, clearly mark the correct answer. 
+For select all that apply, use brackets for the answer choices and add an asterisk inside the bracket for the correct answers"""
     if instructions.strip():
         prompt += f"""
     Follow these additional instructions **as long as they do not change or break the formatting** used in the sample quiz:
