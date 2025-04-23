@@ -253,56 +253,62 @@ def generate_quiz():
                 canvas_api_url = os.getenv("CANVAS_API_URL", "https://k12.instructure.com")
                 canvas_api_token = os.getenv("CANVAS_API_TOKEN")
                 canvas_course_id = data.get("canvasCourseId")
-                if not canvas_course_id:
-                    raise Exception("Canvas course ID is required")
-                if not canvas_api_token:
-                    raise Exception("CANVAS_API_TOKEN not set in .env")
-                init_url = f"{canvas_api_url}/api/v1/courses/{canvas_course_id}/content_migrations"
-                qti_zip_path = os.path.join(PUBLIC_FOLDER, "output.zip")
-                payload = {
-                    "migration_type": "qti_converter",
-                    "pre_attachment[name]": os.path.basename(qti_zip_path)
-                }
-                headers = {"Authorization": f"Bearer {canvas_api_token}"}
-                response = requests.post(init_url, data=payload, headers=headers)
-                response.raise_for_status()
-                migration = response.json()
-                upload_url = migration.get("pre_attachment", {}).get("upload_url")
-                upload_params = migration.get("pre_attachment", {}).get("upload_params")
-                progress_url = migration.get("progress_url")
-                print("Content migration initiated.")
-                with open(qti_zip_path, "rb") as f:
-                    files = {"file": f}
-                    upload_response = requests.post(upload_url, data=upload_params, files=files)
-                    if upload_response.status_code in (301, 302):
-                        confirm_url = upload_response.headers.get("Location")
-                        if confirm_url:
-                            confirm_response = requests.get(confirm_url, headers=headers)
-                            confirm_response.raise_for_status()
-                            print("File upload confirmed.")
-                    else:
-                        upload_response.raise_for_status()
-                        print("File uploaded successfully.")
+                try:
+                    if not canvas_course_id:
+                        raise ValueError("Canvas course ID is missing")
+                    if not canvas_api_token:
+                        raise ValueError("Canvas API token is not set")
 
-                # Poll progress for up to 30 seconds
-                print("Processing QTI file...")
-                start_time = time.time()
-                max_poll_duration = 30
-                while time.time() - start_time < max_poll_duration:
-                    prog_resp = requests.get(progress_url, headers=headers)
-                    prog_resp.raise_for_status()
-                    progress_data = prog_resp.json()
-                    state = progress_data.get("workflow_state")
-                    completion = progress_data.get("completion", 0)
-                    print(f"Progress: {completion}% (state: {state})")
-                    if state == "completed":
-                        print("Import completed! Quiz has been created in Canvas.")
-                        break
-                    elif state == "failed":
-                        raise Exception("Import failed: " + str(progress_data))
-                    time.sleep(2)
-                else:
-                    print(f"Preview returned; file upload is still processing. Last recorded progress: {completion}%.")
+                    init_url = f"{canvas_api_url}/api/v1/courses/{canvas_course_id}/content_migrations"
+                    qti_zip_path = os.path.join(PUBLIC_FOLDER, "output.zip")
+                    payload = {
+                        "migration_type": "qti_converter",
+                        "pre_attachment[name]": os.path.basename(qti_zip_path)
+                    }
+                    headers = {"Authorization": f"Bearer {canvas_api_token}"}
+                    response = requests.post(init_url, data=payload, headers=headers)
+                    response.raise_for_status()
+                    migration = response.json()
+                    upload_url = migration.get("pre_attachment", {}).get("upload_url")
+                    upload_params = migration.get("pre_attachment", {}).get("upload_params")
+                    progress_url = migration.get("progress_url")
+                    print("Content migration initiated.")
+
+                    with open(qti_zip_path, "rb") as f:
+                        files = {"file": f}
+                        upload_response = requests.post(upload_url, data=upload_params, files=files)
+                        if upload_response.status_code in (301, 302):
+                            confirm_url = upload_response.headers.get("Location")
+                            if confirm_url:
+                                confirm_response = requests.get(confirm_url, headers=headers)
+                                confirm_response.raise_for_status()
+                                print("File upload confirmed.")
+                        else:
+                            upload_response.raise_for_status()
+                            print("File uploaded successfully.")
+
+                    print("Processing QTI file...")
+                    start_time = time.time()
+                    max_poll_duration = 30
+                    while time.time() - start_time < max_poll_duration:
+                        prog_resp = requests.get(progress_url, headers=headers)
+                        prog_resp.raise_for_status()
+                        progress_data = prog_resp.json()
+                        state = progress_data.get("workflow_state")
+                        completion = progress_data.get("completion", 0)
+                        print(f"Progress: {completion}% (state: {state})")
+                        if state == "completed":
+                            print("Import completed! Quiz has been created in Canvas.")
+                            break
+                        elif state == "failed":
+                            raise Exception("Import failed: " + str(progress_data))
+                        time.sleep(2)
+                    else:
+                        print(
+                            f"Preview returned; file upload is still processing. Last recorded progress: {completion}%.")
+                except Exception as e:
+                    print(f"⚠️ Warning: Skipping Canvas upload. Reason: {e}")
+
             except subprocess.CalledProcessError as e:
                 print(f"❌ Error running text2qti: {e}")
                 qti_zip = None
