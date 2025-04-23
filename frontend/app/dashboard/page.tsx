@@ -414,7 +414,7 @@ export default function Dashboard() {
                   type="range"
                   className="w-full h-2 bg-[#e8def8] rounded-lg appearance-none cursor-pointer"
                   min="5"
-                  max="50"
+                  max="500"
                   value={numberOfQuestions}
                   onChange={(e) => setNumberOfQuestions(Number.parseInt(e.target.value))}
                 />
