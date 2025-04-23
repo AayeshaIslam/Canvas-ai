@@ -414,14 +414,14 @@ export default function Dashboard() {
                   type="range"
                   className="w-full h-2 bg-[#e8def8] rounded-lg appearance-none cursor-pointer"
                   min="5"
-                  max="50"
+                  max="500"
                   value={numberOfQuestions}
                   onChange={(e) => setNumberOfQuestions(Number.parseInt(e.target.value))}
                 />
                 <div className="flex justify-between mt-1">
                   <span className="text-xs text-[#49454f]">5</span>
                   <span className="text-xs text-[#49454f]">{numberOfQuestions}</span>
-                  <span className="text-xs text-[#49454f]">50</span>
+                  <span className="text-xs text-[#49454f]">500</span>
                 </div>
               </div>
             </div>
