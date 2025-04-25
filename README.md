@@ -1,5 +1,4 @@
 
-
 # AI-Powered Canvas Quiz Generator
 
 [🎥 Watch the Demo](https://www.youtube.com/watch?v=bb5Ti_cx0G4)
@@ -48,6 +47,18 @@ If needed: [Watch Setup Video](https://youtu.be/KN6vHY-3F9E?si=8QNbV_ta1UpalzQA)
 
 ### Canvas API (Optional)
 - Generate a Canvas API token through your institution’s IT department for course-level integration.
+
+---
+
+## 🔐 Tokens Setup
+
+Navigate to the `/backend` folder and open the `.env` file.  
+Paste the following values with your actual keys:
+
+```
+OPENAI_API_KEY=your_openai_api_key_here
+CANVAS_API_KEY=your_canvas_api_key_here
+```
 
 ---
 
